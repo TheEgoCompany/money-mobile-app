@@ -1,17 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import HeaderBar from '../../components/headerBar';
 
-export const EgoPayHomeScreen: React.FC = () => {
-const title = 'pay';
+export const EgoAccountsHomeScreen: React.FC = () => {
+
   return (
     <View style={styles.container}
     >
-<HeaderBar
-    highlightTitle = {'EGO'}
-      title = {title}
-      showBackButton = {false}
-      />
 	<Text style={styles.text}>Ego Pay Home Screen</Text>
     </View>
   );
@@ -20,8 +14,8 @@ const title = 'pay';
 const styles = StyleSheet.create({
 	container: {
 	flex: 1,
-	marginTop: 0,
 	alignContent: 'center',
+	justifyContent: 'center',
 	},
 	text: {
 		textAlign: 'center',

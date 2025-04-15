@@ -12,6 +12,8 @@ import {
 import OnboardingStack, {OnboardingStackParamList}from './stacks/onboardingStack';
 import MainStack, {MainStackParamList}from './stacks/mainStack';
 import { RootNavigator } from './utils';
+import { IMainAppState } from 'src/store/models/reducers/mainAppState';
+import { useSelector } from 'react-redux';
 
 export type RootStackParamList = {
 	Onboarding: NavigatorScreenParams<OnboardingStackParamList>;
@@ -25,7 +27,9 @@ export type RootStackScreenProps<Route extends keyof RootStackParamList> =
       StackScreenProps<RootStackParamList, Route>;
 
       const Stack = createStackNavigator<RootStackParamList>();
-
+      interface IState {
+	mainAppStateReducer: IMainAppState;
+      }
       export const Navigation = () => {
 
 	return (
@@ -36,6 +40,9 @@ export type RootStackScreenProps<Route extends keyof RootStackParamList> =
       };
 
       const AppNavigator = () => {
+	//const userOnboarded = useSelector(
+	//	(state: IState) => state.mainAppStateReducer.isOnboarded,
+	//);
 	const userOnboarded = true;
 	return (
 	<Stack.Navigator
