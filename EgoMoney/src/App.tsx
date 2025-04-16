@@ -4,7 +4,9 @@
  *
  * @format
  */
-
+if (__DEV__) {
+  require('./ReactotronConfig');
+}
 import React from 'react';
 import { Navigation } from './navigation';
 import { Provider} from 'react-redux';
