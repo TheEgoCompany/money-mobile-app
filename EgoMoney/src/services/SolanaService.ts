@@ -356,12 +356,12 @@ const keypair = Keypair.fromSeed(
 	}
       }
 
-      const { EXPO_PUBLIC_ALCHEMY_SOL_URL, EXPO_PUBLIC_ALCHEMY_SOL_API_KEY } =
+      const { SOL_URL, SOL_API_KEY } =
 	process.env;
 	let customRpcUrl = ''; //@ToDo define a fallback RPC definition here
-	if(EXPO_PUBLIC_ALCHEMY_SOL_URL && EXPO_PUBLIC_ALCHEMY_SOL_API_KEY){
+	if( SOL_URL && SOL_API_KEY){
       customRpcUrl =
-	EXPO_PUBLIC_ALCHEMY_SOL_URL + EXPO_PUBLIC_ALCHEMY_SOL_API_KEY;
+	SOL_URL + SOL_API_KEY;
 	}
       const solanaService = new SolanaService(customRpcUrl);
       export default solanaService;
