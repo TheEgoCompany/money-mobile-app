@@ -13,7 +13,7 @@ import { Provider} from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
 import configureStore from './store';
 import { ActivityIndicator } from 'react-native';
-
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 function App(): React.JSX.Element {
 
@@ -22,7 +22,9 @@ function App(): React.JSX.Element {
   return (
     <Provider store={store}>
     <PersistGate loading={<ActivityIndicator />} persistor={persistor}>
+    <GestureHandlerRootView>
     <Navigation/>
+    </GestureHandlerRootView>
     </PersistGate>
     </Provider>
   );
