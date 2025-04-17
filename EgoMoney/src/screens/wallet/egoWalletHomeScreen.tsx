@@ -4,6 +4,9 @@ import HeaderBar from '../../components/headerBar';
 import {WalletCard} from '../../components/walletCard';
 import SolanaIcon from "../../assets/svg/solana.svg";
 import { Colors } from '../../styles/colors';
+import { WalletCarousel } from '../../components/walletCarousel';
+import RibbonButton from '../../components/ribbonButton';
+import TradeButtonRibbon from '../../components/tradeButtonRibbon';
 
 export const EgoWalletHomeScreen: React.FC = () => {
 const title = 'wallet';
@@ -19,8 +22,14 @@ const handleWalletPress = () => {
       showBackButton = {false}
       />
       <View style={styles.walletContainer}>
-	<WalletCard/>
+	<WalletCarousel/>
 	</View>
+	<TradeButtonRibbon
+	title={'Buy'}
+	type={''}
+	iconNameEnabled={''}
+	iconNameDisabled={''}
+	disabled={false}/>
       </View>
   );
 };
@@ -38,7 +47,7 @@ const styles = StyleSheet.create({
 	alignSelf: 'center',
 	justifyContent: 'center',
 	marginTop: 10,
-	paddingLeft: 20,
+	paddingLeft: 0,
 	paddingTop: 5,
 	height: 260,
 	width: '100%',
