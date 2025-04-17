@@ -1,107 +1,86 @@
-import styled from 'styled-components/native';
-import { ThemeType } from '../../styles/theme';
-import React, { memo } from 'react';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import SolanaIcon from '../../assets/svg/solana.svg';
+import { Colors } from '../styles';
+import { iOSUIKit } from 'react-native-typography';
 
-interface ButtonTextProps {
-  color?: string;
-  theme: ThemeType;
-  disabled?: boolean;
+export const WalletCard: React.FC = () => {
+const title = 'wallet';
+const Icon = SolanaIcon;
+const handleWalletPress = () => {
 }
-
-interface ButtonContainerProps {
-  hideBackground: boolean;
-  backgroundColor?: string;
-  theme: ThemeType;
-}
-
-interface CircleProps {
-  iconBackgroundColor?: string;
-  theme: ThemeType;
-}
-
-const WalletCardContainer = styled.TouchableOpacity<ButtonContainerProps>`
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: ${({ theme, hideBackground }) =>
-    hideBackground ? 'transparent' : theme.colors.lightDark};
-  border-radius: ${(props) => props.theme.borderRadius.large};
-  height: 75px;
-  padding: ${(props) => props.theme.spacing.medium};
-  padding-left: 20px;
-  padding-right: 27.5px;
-  width: 100%;
-  opacity: 0.95;
-`;
-
-const WalletCardText = styled.Text<ButtonTextProps>`
-  font-family: ${(props) => props.theme.fonts.families.openBold};
-  font-size: ${(props) => props.theme.fonts.sizes.large};
-  color: ${({ theme }) => theme.colors.white};
-`;
-
-const PrimaryTextContainer = styled.View<{ theme: ThemeType }>`
-  flex-direction: column;
-`;
-
-const Circle = styled.View<CircleProps>`
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 100px;
-  margin-right: 5px;
-`;
-
-const ChainContainer = styled.View`
-  flex-direction: row;
-  align-items: center;
-`;
-
-const CryptoBalanceText = styled.Text<ButtonTextProps>`
-  font-family: ${(props) => props.theme.fonts.families.openBold};
-  font-size: ${(props) => props.theme.fonts.sizes.normal};
-  color: ${({ theme }) => theme.colors.lightGrey};
-`;
-
-interface ButtonProps {
-  title: string;
-  caption: string;
-  details: string;
-  backgroundColor?: string;
-  icon: React.ReactNode;
-  iconBackgroundColor?: string;
-  onPress: () => void;
-  hideBackground?: boolean;
-}
-
-const WalletCard: React.FC<ButtonProps> = ({
-  title,
-  caption,
-  details,
-  backgroundColor,
-  icon,
-  iconBackgroundColor,
-  onPress,
-  hideBackground = false,
-}) => {
   return (
-    <WalletCardContainer
-      onPress={onPress}
-      backgroundColor={backgroundColor}
-      hideBackground={hideBackground}
-    >
-      <ChainContainer>
-        <Circle iconBackgroundColor={iconBackgroundColor}>{icon}</Circle>
-        <PrimaryTextContainer>
-          <WalletCardText>{title}</WalletCardText>
-          <CryptoBalanceText>{caption}</CryptoBalanceText>
-        </PrimaryTextContainer>
-      </ChainContainer>
-      <PrimaryTextContainer>
-        <WalletCardText>{details}</WalletCardText>
-      </PrimaryTextContainer>
-    </WalletCardContainer>
+	<View style={styles.walletCard}>
+	<Text style={styles.chainTitle}>Solana</Text>
+	<Text style={styles.address}>2SKGX...2NsaTa</Text>
+	<Text style={styles.totalBalanceTitle}>TOTAL ASSET BALANCE:</Text>
+	<Text style={styles.balanceUSD}>$10,456.21</Text>
+	<Text style={styles.balanceToken}>78.11 SOL</Text>
+	<View style={styles.iconContainer}>
+	<Icon width={60} height={60} fill={Colors.primaryColors.white} />
+	</View>
+	</View>
   );
 };
 
-export default memo(WalletCard);
+const styles = StyleSheet.create({
+	walletCard: {
+	backgroundColor: Colors.primaryColors.black,
+	width: '95%',
+	height: '90%',
+	alignSelf: 'flex-start',
+	borderRadius: 12,
+	},
+	iconContainer:{
+	position: 'absolute',
+	top: 15,
+	right: 15,
+	},
+	chainTitle:{
+	   ...iOSUIKit.title3EmphasizedObject,
+	    fontSize: 28,
+	    lineHeight: 28,
+	    marginTop: 24,
+	    marginBottom: 6,
+	    marginLeft: 18,
+	    color: Colors.primaryColors.silver,
+	    textAlign: 'left',
+	},
+	address:{
+		...iOSUIKit.caption2EmphasizedObject,
+		fontSize: 18,
+		lineHeight: 18,
+		marginTop: 0,
+		marginBottom: 12,
+		marginLeft: 18,
+		color: Colors.primaryColors.silver,
+		textAlign: 'left',
+	},
+	totalBalanceTitle:{
+		...iOSUIKit.largeTitleEmphasizedObject,
+		fontSize: 14,
+		lineHeight: 18,
+		marginTop: 9,
+		marginLeft: 18,
+		color: Colors.primaryColors.gray,
+		textAlign: 'left',
+	},
+	balanceUSD:{
+		...iOSUIKit.largeTitleEmphasizedObject,
+		fontSize: 42,
+		lineHeight: 42,
+		marginTop: 8,
+		marginLeft: 18,
+		color: Colors.primaryColors.silver,
+		textAlign: 'left',
+	},
+	balanceToken:{
+		...iOSUIKit.largeTitleEmphasizedObject,
+		fontSize: 18,
+		lineHeight: 18,
+		marginTop: 9,
+		marginLeft: 18,
+		color: Colors.primaryColors.egoGold,
+		textAlign: 'left',
+	},
+      });
