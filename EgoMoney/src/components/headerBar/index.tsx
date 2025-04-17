@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles';
 import UserAvatarButton from '../avatarButton';
+import { WalletCarousel } from '../walletCarousel';
 
 interface IHeaderProps {
   highlightTitle?: string;
@@ -26,6 +27,7 @@ const HeaderBar: React.FC<IHeaderProps> = ({ title }: IHeaderProps)=> {
           <UserAvatarButton title="@catoshi"/>
         </View>
       </View>
+      <WalletCarousel/>
     </View>
   );
 };

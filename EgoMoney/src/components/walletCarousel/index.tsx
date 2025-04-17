@@ -73,6 +73,7 @@ export const WalletCarousel: React.FC = () => {
 				width={window.width}
 				style={{
 					width: window.width,
+					backgroundColor: 'white'
 				}}
 				mode="parallax"
 				modeConfig={{

@@ -7,8 +7,8 @@ import { Colors } from '../styles';
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: 150,
-    paddingHorizontal: 10,
+    height: 370,
+    paddingHorizontal: 0,
     paddingTop: 40,
     backgroundColor: Colors.primaryColors.black,
     borderBottomWidth: 2,

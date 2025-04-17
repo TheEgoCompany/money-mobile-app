@@ -1,4 +1,5 @@
 export const Colors = {
+  egoGold: '#D4AF37',
   neonGreen: '#C1ED00',
   pureWhite: '#FFFFFF',
   tintedWhite: '#F1F2F3',
